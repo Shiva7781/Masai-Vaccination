@@ -1,0 +1,24 @@
+.nav {
+    height: 51px;
+    margin: auto;
+    vertical-align: middle;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(143, 209, 209);
+}
+
+.nav a {
+
+    padding: 11px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+
+.nav a:hover {
+    background-color: teal;
+    color: white
+}

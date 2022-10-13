@@ -1,0 +1,10 @@
+#register {
+    /* border: 1px solid red; */
+    width: 33%;
+    margin: auto;
+    margin-top: 7%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(225, 244, 244);
+}
