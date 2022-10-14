@@ -33,7 +33,6 @@ const Dashboard = () => {
     console.log(ind, "enter OTP");
     setOtpCheck(ind);
 
-    
     let vaccinatedData =
       JSON.parse(localStorage.getItem("vaccinatedData")) || [];
 
