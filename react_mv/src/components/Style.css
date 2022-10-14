@@ -1,0 +1,95 @@
+.Nav {
+    width: 100%;
+    height: 51px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(143, 211, 211);
+}
+
+/* Link === a */
+.Nav a {
+    padding: 11px;
+    font-size: 21px;
+    text-decoration: none;
+}
+
+.Nav a:hover {
+    color: white;
+    background-color: teal;
+}
+
+.Register {
+    /* border: 1px solid red; */
+    width: 33%;
+    margin: auto;
+    margin-top: 1%;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    border-radius: 3%;
+    background-color: rgb(225, 244, 244);
+}
+
+.Register button {
+    cursor: pointer;
+}
+
+.TableData {
+    width: 75%;
+    margin: auto;
+    margin-top: 0.7%;
+    background-color: rgb(225, 244, 244);
+    /* border: 1px solid red; */
+}
+
+.OTP {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+/* 
+.Table_Title {
+    background-color: yellow;
+    border: 3px solid red;
+}
+ */
+
+th,
+td {
+    /* border: 1px solid red; */
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.Filter_Sort_btn {
+    width: 50%;
+    margin: auto;
+    margin-top: 0.7%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.DeleteBtn {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.DeleteBtn:focus {
+    background-color: teal;
+}
+
+.VaccinateBtn {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+.VaccinateBtn:focus {
+    background-color: coral;
+}
