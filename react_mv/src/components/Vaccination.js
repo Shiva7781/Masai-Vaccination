@@ -2,24 +2,49 @@ import React, { useState, useEffect } from "react";
 import "./Style.css";
 
 const Vaccination = () => {
-  const vaccinatedData =
-    JSON.parse(localStorage.getItem("vaccinatedData")) || [];
-  // console.log("vaccinatedData:", vaccinatedData);
+  // eslint-disable-next-line
+  const vaccinated = JSON.parse(localStorage.getItem("vaccinated")) || [];
+  // console.log("vaccinated:", vaccinated);
 
-  const [displayVaccinated, setDisplayVaccinated] = useState([
-    ...vaccinatedData,
-  ]);
+  const [displayVaccinated, setDisplayVaccinated] = useState([...vaccinated]);
 
   useEffect(() => {
-    setDisplayVaccinated(vaccinatedData);
-  }, [vaccinatedData]);
+    setDisplayVaccinated(vaccinated);
+  }, [vaccinated]);
+
+  const filterVaccine = () => {
+    console.log("Vaccine");
+
+    let sortedVaccine = displayVaccinated.sort((a, b) => {
+      let vA = a.vaccine.toLowerCase();
+      let vB = b.vaccine.toLowerCase();
+
+      return vA - vB;
+    });
+
+    setDisplayVaccinated(sortedVaccine);
+  };
+
+  const filterAge = () => {
+    console.log("Age");
+
+    // displayVaccinated.sort((a, b) => {
+    //   return setDisplayVaccinated(Number(a) - Number(b));
+    // });
+
+    console.log(displayVaccinated);
+  };
+
+  const filterPriority = () => {
+    console.log("Priority");
+  };
 
   return (
     <>
       <div className="Filter_Sort_btn">
-        <button>Filter by Vaccine</button>
-        <button>Sort by age</button>
-        <button>Filter by Priority</button>
+        <button onClick={filterVaccine}>Filter by Vaccine</button>
+        <button onClick={filterAge}>Sort by age</button>
+        <button onClick={filterPriority}>Filter by Priority</button>
       </div>
       <table className="TableData">
         <tbody>

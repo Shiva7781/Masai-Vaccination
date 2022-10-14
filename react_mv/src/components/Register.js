@@ -11,10 +11,6 @@ const Register = () => {
     vaccine: "Covishield",
   });
 
-  const SubmitForm = (e) => {
-    e.preventDefault();
-  };
-
   const RegisterData = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -25,9 +21,22 @@ const Register = () => {
     // console.log("data:", data);
   };
 
+  const SubmitForm = (e) => {
+    e.preventDefault();
+
+    setData({
+      unique_id: "",
+      name: "",
+      age: "",
+      designation: "Employee",
+      priority: "p0",
+      vaccine: "Covishield",
+    });
+  };
+
   /** Storing Data in localStorage */
   let registerData = JSON.parse(localStorage.getItem("registerData")) || [];
-  console.log("registerData:", registerData);
+  // console.log("registerData:", registerData);
 
   const lsData = () => {
     if (data.unique_id && data.name && data.age) {
@@ -50,6 +59,7 @@ const Register = () => {
             id="unique_id"
             name="unique_id"
             required
+            value={data.unique_id}
             placeholder="e.g. Shiva@7781"
             onChange={RegisterData}
           />
@@ -63,6 +73,7 @@ const Register = () => {
             id="name"
             name="name"
             required
+            value={data.name}
             placeholder="e.g. Shiva V"
             onChange={RegisterData}
           />
@@ -76,6 +87,7 @@ const Register = () => {
             id="age"
             name="age"
             required
+            value={data.age}
             placeholder="Enter here"
             onChange={RegisterData}
           />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Style.css";
 
 const Dashboard = () => {
+  // eslint-disable-next-line
   const registerData = JSON.parse(localStorage.getItem(`registerData`)) || [];
   // console.log("registerData:", registerData);
 
@@ -13,7 +14,7 @@ const Dashboard = () => {
   }, [registerData]);
 
   const DeleteBtn = (ind) => {
-    console.log(ind);
+    // console.log(ind);
 
     /*
     Don't use removeItem() 
@@ -30,11 +31,10 @@ const Dashboard = () => {
   // };
 
   const VaccinateBtn = (ind) => {
-    console.log(ind, "enter OTP");
+    // console.log(ind, "enter OTP");
     setOtpCheck(ind);
 
-    let vaccinatedData =
-      JSON.parse(localStorage.getItem("vaccinatedData")) || [];
+    let vaccinated = JSON.parse(localStorage.getItem("vaccinated")) || [];
 
     if (otpCheck) {
       alert(`${registerData[ind].name} Added to Queue`);
@@ -46,21 +46,35 @@ const Dashboard = () => {
       setTimeout(() => {
         alert(`${registerData[ind].name} Vaccinated`);
 
-        vaccinatedData.push(registerData[ind]);
+        vaccinated.push(registerData[ind]);
 
-        localStorage.setItem("vaccinatedData", JSON.stringify(vaccinatedData));
+        localStorage.setItem("vaccinated", JSON.stringify(vaccinated));
+
+        DeleteBtn(ind);
       }, 7000);
     } else {
       alert("Wrong OTP");
     }
   };
 
+  const filterVaccine = () => {
+    console.log("Vaccine");
+  };
+
+  const filterAge = () => {
+    console.log("Age");
+  };
+
+  const filterPriority = () => {
+    console.log("Priority");
+  };
+
   return (
     <>
       <div className="Filter_Sort_btn">
-        <button>Filter by Vaccine</button>
-        <button>Sort by age</button>
-        <button>Filter by Priority</button>
+        <button onClick={filterVaccine}>Filter by Vaccine</button>
+        <button onClick={filterAge}>Sort by age</button>
+        <button onClick={filterPriority}>Filter by Priority</button>
       </div>
       <table className="TableData">
         <tbody>
