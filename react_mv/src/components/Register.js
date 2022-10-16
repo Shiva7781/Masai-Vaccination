@@ -40,9 +40,20 @@ const Register = () => {
 
   const lsData = () => {
     if (data.unique_id && data.name && data.age) {
-      registerData.push(data);
+      let flag = false;
+      for (let x of registerData) {
+        if (x.unique_id !== data.unique_id) {
+          flag = true;
+        }
+      }
 
-      localStorage.setItem("registerData", JSON.stringify(registerData));
+      if (flag) {
+        registerData.push(data);
+
+        localStorage.setItem("registerData", JSON.stringify(registerData));
+      } else {
+        alert("Unique ID already exists");
+      }
     } else {
       alert("Please Fill all field");
     }
