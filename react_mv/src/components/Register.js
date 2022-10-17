@@ -42,15 +42,17 @@ const Register = () => {
     if (data.unique_id && data.name && data.age) {
       let flag = false;
       for (let x of registerData) {
-        if (x.unique_id !== data.unique_id) {
+        if (x.unique_id === data.unique_id) {
           flag = true;
         }
       }
 
-      if (flag) {
+      if (!flag) {
         registerData.push(data);
 
         localStorage.setItem("registerData", JSON.stringify(registerData));
+
+        alert("Registration successful");
       } else {
         alert("Unique ID already exists");
       }

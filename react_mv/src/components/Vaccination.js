@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Style.css";
 
 const Vaccination = () => {
@@ -8,35 +8,49 @@ const Vaccination = () => {
 
   const [displayVaccinated, setDisplayVaccinated] = useState([...vaccinated]);
 
-  useEffect(() => {
-    setDisplayVaccinated(vaccinated);
-  }, [vaccinated]);
-
   const filterVaccine = () => {
-    console.log("Vaccine");
+    // console.log("Vaccine");
+    // console.log("displayVaccinated:", displayVaccinated);
 
-    let sortedVaccine = displayVaccinated.sort((a, b) => {
-      let vA = a.vaccine.toLowerCase();
-      let vB = b.vaccine.toLowerCase();
-
-      return vA - vB;
+    let Sorted_Vaccine = displayVaccinated.sort(function (a, b) {
+      if (a["vaccine"] < b["vaccine"]) return -1;
+      if (a["vaccine"] > b["vaccine"]) return 1;
+      return 0;
     });
 
-    setDisplayVaccinated(sortedVaccine);
+    // console.log("Sorted_Vaccine:", Sorted_Vaccine);
+    setDisplayVaccinated([...Sorted_Vaccine]);
   };
 
   const filterAge = () => {
-    console.log("Age");
+    // console.log("Age");
+    // console.log("displayVaccinated:", displayVaccinated);
 
-    // displayVaccinated.sort((a, b) => {
-    //   return setDisplayVaccinated(Number(a) - Number(b));
-    // });
+    let Sorted_Age = displayVaccinated.sort(function (a, b) {
+      if (a["age"] < b["age"]) return -1;
+      if (a["age"] > b["age"]) return 1;
+      return 0;
+    });
 
-    console.log(displayVaccinated);
+    // console.log("Sorted_Age:", Sorted_Age);
+    setDisplayVaccinated([...Sorted_Age]);
   };
 
   const filterPriority = () => {
-    console.log("Priority");
+    // console.log("Priority");
+    // console.log("displayVaccinated:", displayVaccinated);
+
+    let Sorted_Priority = displayVaccinated.sort(function (a, b) {
+      a["priority"].split("");
+      b["priority"].split("");
+
+      if (a["priority"][1] < b["priority"][1]) return -1;
+      if (a["priority"][1] > b["priority"][1]) return 1;
+      return 0;
+    });
+
+    // console.log("Sorted_Priority:", Sorted_Priority);
+    setDisplayVaccinated([...Sorted_Priority]);
   };
 
   return (
